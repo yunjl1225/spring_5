@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--注入属性-内部 bean-->
+
+    <!--创建员工类Emp的对象-->
+    <bean id="emp" class="com.yun.bean.Emp">
+
+        <!--注入员工类Emp中的普通属性值-->
+        <property name="ename" value="云敬琳"></property>
+        <property name="gender" value="男"></property>
+
+        <!--注入员工类Emp中的对象类型的属性值-->
+        <property name="dept">
+
+            <!--在内部创建部门类Dept的对象-->
+            <bean id="dept" class="com.yun.bean.Dept">
+                <!--注入部门类Dept的普通对象值-->
+                <property name="dname" value="技术部门"></property>
+            </bean>
+
+        </property>
+    </bean>
+
+</beans>

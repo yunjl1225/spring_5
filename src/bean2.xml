@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--注入属性-外部 bean-->
+
+    <!--1、先创建Service和UserDao对象-->
+    <bean id="userService" class="com.yun.service.UserService">
+        <!--2、在UserService中注入UserDao对象
+              name  表示UserService中定义的属性名
+              ref   表示配置文件中创建的UserDao对象名
+        -->
+        <property name="userDao" ref="userDaoObj"></property>
+    </bean>
+         <!--UserDao接口不能创建对象，需要指定对应的实现类UserDaoImpl-->
+    <bean id="userDaoObj" class="com.yun.dao.daoImpl.UserDaoImpl"></bean>
+
+
+
+
+</beans>

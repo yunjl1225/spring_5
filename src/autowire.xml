@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--使用自动装配
+        bean标签属性autowire，配置自动装配
+            autowire属性
+                byName      根据属性名称注入    (bean类的属性名要与配置文件创建的对象名一致)
+                byType      根据属性的类型注入
+    -->
+
+    <!--创建员工类对象-->
+    <bean id="employee" class="com.yun.autowire.Employees" autowire="byName">
+        <!--手动装配：
+        <property name="department" ref="department"></property>-->
+
+
+    </bean>
+
+    <!--创建部门类对象-->
+    <bean id="department" class="com.yun.autowire.Department"></bean>
+</beans>

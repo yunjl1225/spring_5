@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--注入属性-级联赋值-->
+
+    <!--创建员工类Emp的对象-->
+    <bean id="emp" class="com.yun.bean.Emp">
+        <!--注入员工类Emp中的普通属性值-->
+        <property name="ename" value="闫闫"></property>
+        <property name="gender" value="女"></property>
+            <!--使用级联赋值-->
+        <property name="dept" ref="deptObj"></property>
+    </bean>
+    <!--创建部门类Dept的对象-->
+    <bean id="deptObj" class="com.yun.bean.Dept">
+        <!--属性注入-->
+        <property name="dname" value="销售部"></property>
+    </bean>
+</beans>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--集合类型的属性注入-->
+    <bean id="stu" class="com.yun.spring.Stu">
+        <!--数组类型的注入-->
+        <property name="courses">
+            <array>
+                <value>java开发</value>
+                <value>js语言</value>
+            </array>
+        </property>
+        <!--list集合类型注入-->
+        <property name="list">
+            <list>
+                <value>张三</value>
+                <value>小三</value>
+            </list>
+        </property>
+        <!--map类型注入-->
+        <property name="maps">
+            <map>
+                <entry key="java" value="JAVA"></entry>
+                <entry key="php" value="PHP"></entry>
+            </map>
+        </property>
+        <!--set集合类型注入-->
+        <property name="sets">
+            <set>
+                <value>set1</value>
+                <value>set2</value>
+            </set>
+        </property>
+
+        <!--注入list集合类型属性，值为其他类的对象-->
+        <property name="courseList">
+            <list>
+                <!--注入Course类对象(写上在配置文件中创建的对象名)-->
+                <ref bean="course1"></ref>
+                <ref bean="course2"></ref>
+            </list>
+        </property>
+    </bean>
+
+   <!-- 创建多个Course对象-->
+    <bean id="course1" class="com.yun.spring.Course">
+        <property name="cname" value="第一个课程名"></property>
+    </bean>
+    <bean id="course2" class="com.yun.spring.Course">
+        <property name="cname" value="第二个课程名"></property>
+    </bean>
+
+</beans>
